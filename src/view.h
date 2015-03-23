@@ -16,11 +16,13 @@ struct Vertex {
 };
 
 class View {
-public:
-    View();
 private:
+    View();
     GLuint loadTexture(const string &path);
     void loadShaders();
+
+    int windowWidth = 800;
+    int windowHeight = 600;
 
     SDL_Window* window;
     SDL_GLContext glContext;
@@ -30,9 +32,9 @@ private:
     GLuint indicesBuffer;
     GLuint shaderProgram;
 public:
-    /*static View& getInstance() {
+    static View& getInstance() {
         static View view;
         return view;
-    }*/
+    }
     void draw();
 };
